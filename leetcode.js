@@ -1,44 +1,37 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const username = 'hadi_hajj_houssein';
 
-    // 1. FAST API: Gets Solved Counts (Easy/Medium/Hard)
-    // This API is specifically built for GitHub Pages and is very reliable.
-    const statsUrl = `https://leetcode-stats-api.herokuapp.com/${username}`;
-    
-    // 2. RATING API: Gets your Contest Rating
-    // We use a different source for this because the first API doesn't have it.
-    const ratingUrl = `https://alfa-leetcode-api.onrender.com/${username}/contest`;
+    // 1. FAST PART: Get Problems Solved (Easy/Medium/Hard)
+    // This runs quickly and works perfectly on GitHub Pages
+    fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById("total").textContent = data.totalSolved;
+                document.getElementById("easy").textContent = data.easySolved;
+                document.getElementById("medium").textContent = data.mediumSolved;
+                document.getElementById("hard").textContent = data.hardSolved;
+            }
+        })
+        .catch(err => console.error("Solved Stats Error:", err));
 
-    // --- PART A: Load Problems (Fast) ---
+    // 2. RATING PART: Get Contest Rating
+    // We fetch this separately to ensure we get "Rating" (e.g., 1500) and not "Rank"
     try {
-        const response = await fetch(statsUrl);
+        const response = await fetch(`https://alfa-leetcode-api.onrender.com/${username}/contest`);
         const data = await response.json();
         
-        if (data.status === 'success') {
-            document.getElementById("total").textContent = data.totalSolved;
-            document.getElementById("easy").textContent = data.easySolved;
-            document.getElementById("medium").textContent = data.mediumSolved;
-            document.getElementById("hard").textContent = data.hardSolved;
-        } else {
-            console.error("LeetCode API returned error:", data.message);
-        }
-    } catch (err) {
-        console.error("Stats Fetch Failed:", err);
-    }
-
-    // --- PART B: Load Rating (Might be slower) ---
-    try {
-        const response = await fetch(ratingUrl);
-        const data = await response.json();
-        
-        // Check if rating exists
+        // We strictly look for 'contestRating'
         if (data && data.contestRating) {
-             document.getElementById("rating_leetcode").textContent = Math.round(data.contestRating);
+            // Round the number (e.g., 1450.2 -> 1450)
+            document.getElementById("rating_leetcode").textContent = Math.round(data.contestRating);
         } else {
-             document.getElementById("rating_leetcode").textContent = "Unrated";
+            // If the API loads but you have no rating yet
+            document.getElementById("rating_leetcode").textContent = "Unrated";
         }
-    } catch (err) {
-        console.error("Rating Fetch Failed:", err);
+    } catch (error) {
+        console.error("Rating Error:", error);
+        // If it fails or takes too long
         document.getElementById("rating_leetcode").textContent = "---";
     }
 });
