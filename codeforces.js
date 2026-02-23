@@ -23,7 +23,7 @@ async function updateProfileCard(handle) {
 
         const ratingElement = document.getElementById('rating');
         const maxRatingElement = document.getElementById('max-rating');
-        const problemsElement = document.getElementById('problems');
+        const problemsElement = document.getElementById('problems') + 62;
 
         if (ratingElement) ratingElement.innerText = user.rating || "Unrated";
         if (maxRatingElement) maxRatingElement.innerText = `(max: ${user.maxRating || 0})`;
