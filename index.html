@@ -193,14 +193,21 @@
       gap: 20px;
     }
 
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
     .pill {
       background: rgba(94, 234, 212, 0.1);
       color: var(--accent);
       padding: 4px 12px;
       border-radius: 99px;
       font-size: 0.8rem;
-      margin-right: 5px;
       border: 1px solid rgba(94, 234, 212, 0.2);
+      white-space: nowrap;
     }
 
     .badge { font-size: 0.7rem; padding: 2px 8px; background: #374151; border-radius: 4px; margin-left: 5px; }
@@ -263,6 +270,7 @@
         <ul class="xp-card__list">
           <li><strong>Contest rating:</strong> <span id="rating">1500</span> <span class="muted" id="max-rating">(max: 1500)</span></li>
           <li><strong>Problems solved:</strong> <span id="problems">828</span></li>
+          <li><strong>handle:</strong> <span id="handle">Hadi_hh</span></li>
           
         </ul>
       </article>
@@ -276,6 +284,7 @@
         <ul class="xp-card__list">
           <li><strong>Contest rating:</strong> <span id="rating_leetcode"></span></li>
           <li><strong>Problems solved:</strong> <span id="total"></span></li>
+          <li><strong>handle:</strong> <span id="handle_leetcode">hadi_hajj_houssein</span></li>
         </ul>
         <div class="xp-card__grid">
           <div><strong>Easy</strong> <span id="easy"></span></div>
@@ -291,15 +300,26 @@
         <article class="project-card">
           <h3>Portfolio Site</h3>
           <p class="muted">Personal website built to present my profile. Focused on clean design and responsive layouts.</p>
-          <div>
+          <div class="pill-row">
             <span class="pill">HTML5</span><span class="pill">CSS3</span>
           </div>
         </article>
         <article class="project-card">
           <h3>Supermarket Backend</h3>
-          <p class="muted">Supports product management, pricing, and categories. Includes a login/signup system.</p>
-          <div>
+          <p class="muted">Supports product management, pricing, and categories. Includes a login/signup system.
+            github : https://github.com/Hadi-Hajj-Houssein/supermarket
+          </p>
+          <div class="pill-row">
             <span class="pill">Python</span><span class="pill">PostgreSQL</span><span class="pill">Flask</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <h3>EcoCollect</h3>
+          <p class="muted">Recycling pickup platform. Users list the recyclables they have and companies can accept the request and come collect it. Signup uses email verification before an account is activated.But its not public yet 
+            github : https://github.com/Hadi-Hajj-Houssein/Recycling
+          </p>
+          <div class="pill-row">
+            <span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">PostgreSQL</span><span class="pill">SQLAlchemy</span>
           </div>
         </article>
       </div>
@@ -315,7 +335,7 @@
         </article>
         <article class="tech-card">
           <h4>Web Dev</h4>
-          <p class="muted">HTML, CSS, Flask, SQLAlchemy <span class="badge">Beginner</span></p>
+          <p class="muted">HTML, CSS, Flask, FastAPI, PostgreSQL, SQLAlchemy <span class="badge">Beginner</span></p>
         </article>
       </div>
     </section>
@@ -325,8 +345,8 @@
       <p class="muted" style="max-width: 800px; line-height: 1.8;">
         I am a high school student with a strong passion for coding, especially competitive programming. 
         I am a Codeforces Specialist and have achieved top results in regional competitions, including 
-        Top 1 in LCPC Teens and Top 7 in ACPC Teens 2025. I enjoy tackling challenging problems that require 
-        efficient thinking and clean implementation.
+        Top 1 in LCPC Teens, Top 7 in ACPC Teens 2025, and Top 2 in the last AUB Competitive Programming Competition. 
+        I enjoy tackling challenging problems that require efficient thinking and clean implementation.
       </p>
     </section>
 
