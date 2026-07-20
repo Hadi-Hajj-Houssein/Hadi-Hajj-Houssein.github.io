@@ -67,6 +67,7 @@
       list-style: none;
       margin: 0;
       padding: 0;
+      align-items: center;
     }
 
     .nav-list a {
@@ -78,6 +79,31 @@
     }
 
     .nav-list a:hover { color: var(--accent); }
+
+    /* Button Style for Profiles & Repositories */
+    .btn-profile, .btn-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 99px;
+      background: rgba(94, 234, 212, 0.08);
+      color: var(--accent);
+      border: 1px solid rgba(94, 234, 212, 0.25);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-profile:hover, .btn-github:hover {
+      background: var(--accent);
+      color: #050a14;
+      border-color: var(--accent);
+      box-shadow: 0 0 15px rgba(94, 234, 212, 0.4);
+      transform: translateY(-2px);
+    }
+
     .hero {
       padding: 80px 0 40px;
       text-align: center;
@@ -140,9 +166,9 @@
       display: inline-block;
     }
     .section-title span {
-        background: linear-gradient(90deg, var(--accent), #fff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      background: linear-gradient(90deg, var(--accent), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .xp-card, .project-card, .tech-card {
@@ -152,6 +178,9 @@
       padding: 25px;
       margin-bottom: 25px;
       transition: transform 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .xp-card:hover, .project-card:hover {
@@ -167,7 +196,6 @@
     }
 
     .xp-card__logo { width: 40px; height: 40px; object-fit: contain; }
-    .xp-card__link { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
     
     .xp-card__list { list-style: none; padding: 0; margin: 0; }
     .xp-card__list li { margin: 8px 0; color: var(--muted); }
@@ -193,6 +221,15 @@
       gap: 20px;
     }
 
+    .project-card__footer {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -210,7 +247,14 @@
       white-space: nowrap;
     }
 
-    .badge { font-size: 0.7rem; padding: 2px 8px; background: #374151; border-radius: 4px; margin-left: 5px; }
+    .badge { 
+      font-size: 0.75rem; 
+      padding: 4px 10px; 
+      background: rgba(255,255,255,0.08); 
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 6px; 
+    }
 
     footer {
       text-align: center;
@@ -238,6 +282,11 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#tech">Technologies</a></li>
           <li><a href="#about">About</a></li>
+          <li>
+            <a href="https://github.com/Hadi-Hajj-Houssein" target="_blank" class="btn-github" style="padding: 5px 12px;">
+              GitHub 
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -263,33 +312,38 @@
       
       <article class="xp-card">
         <header class="xp-card__header">
-          <img class="xp-card__logo" src="https://cdn.iconscout.com/icon/free/png-256/free-code-forces-logo-icon-svg-download-png-2944796.png" alt="Codeforces">
-          <h3 style="margin:0; flex:1; margin-left:15px">Codeforces</h3>
-          <a class="xp-card__link" href="https://codeforces.com/profile/Hadi_hh" target="_blank">View profile</a>
+          <div style="display:flex; align-items:center;">
+            <img class="xp-card__logo" src="https://cdn.iconscout.com/icon/free/png-256/free-code-forces-logo-icon-svg-download-png-2944796.png" alt="Codeforces">
+            <h3 style="margin:0; margin-left:15px">Codeforces</h3>
+          </div>
+          <a class="btn-profile" href="https://codeforces.com/profile/Hadi_hh" target="_blank">
+            View Profile 
+          </a>
         </header>
         <ul class="xp-card__list">
-          <li><strong>Contest rating:</strong> <span id="rating">1500</span> <span class="muted" id="max-rating">(max: 1500)</span></li>
+          <li><strong>Contest rating:</strong> <span id="rating">1514</span> <span class="muted" id="max-rating">(max: 1514)</span></li>
           <li><strong>Problems solved:</strong> <span id="problems">828</span></li>
-          <li><strong>handle:</strong> <span id="handle">Hadi_hh</span></li>
-          
         </ul>
       </article>
 
       <article class="xp-card">
         <header class="xp-card__header">
-          <img class="xp-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode">
-          <h3 style="margin:0; flex:1; margin-left:15px">LeetCode</h3>
-          <a class="xp-card__link" href="https://leetcode.com/u/hadi_hajj_houssein/" target="_blank">View profile</a>
+          <div style="display:flex; align-items:center;">
+            <img class="xp-card__logo" src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode">
+            <h3 style="margin:0; margin-left:15px">LeetCode</h3>
+          </div>
+          <a class="btn-profile" href="https://leetcode.com/u/hadi_hajj_houssein/" target="_blank">
+            View Profile 
+          </a>
         </header>
         <ul class="xp-card__list">
-          <li><strong>Contest rating:</strong> <span id="rating_leetcode"></span></li>
-          <li><strong>Problems solved:</strong> <span id="total"></span></li>
-          <li><strong>handle:</strong> <span id="handle_leetcode">hadi_hajj_houssein</span></li>
+          <li><strong>Contest rating:</strong> <span id="rating_leetcode">1524</span></li>
+          <li><strong>Problems solved:</strong> <span id="total">90</span></li>
         </ul>
         <div class="xp-card__grid">
-          <div><strong>Easy</strong> <span id="easy"></span></div>
-          <div><strong>Medium</strong> <span id="medium"></span></div>
-          <div><strong>Hard</strong> <span id="hard"></span></div>
+          <div><strong>Easy</strong> <span id="easy">30</span></div>
+          <div><strong>Medium</strong> <span id="medium">54</span></div>
+          <div><strong>Hard</strong> <span id="hard">6</span></div>
         </div>
       </article>
     </section>
@@ -297,40 +351,55 @@
     <section id="projects" class="section">
       <h2 class="section-title"><span>Projects</span></h2>
       <div class="projects-grid">
+        
         <article class="project-card">
-          <h3>Portfolio Site</h3>
-          <p class="muted">Personal website built to present my profile. Focused on clean design and responsive layouts.</p>
-          <div class="pill-row">
-            <span class="pill">HTML5</span><span class="pill">CSS3</span>
+          <div>
+            <h3>Portfolio Site</h3>
+            <p class="muted">Personal website built to present my profile. Focused on clean design and responsive layouts.</p>
+            <div class="pill-row">
+              <span class="pill">HTML5</span><span class="pill">CSS3</span>
+            </div>
+          </div>
+          <div class="project-card__footer">
+            <a href="https://hadi-hajj-houssein.github.io/" target="_blank" class="btn-github">Live Site </a>
           </div>
         </article>
+
         <article class="project-card">
-          <h3>Supermarket Backend</h3>
-          <p class="muted">Supports product management, pricing, and categories. Includes a login/signup system.
-            github : https://github.com/Hadi-Hajj-Houssein/supermarket
-          </p>
-          <div class="pill-row">
-            <span class="pill">Python</span><span class="pill">PostgreSQL</span><span class="pill">Flask</span>
+          <div>
+            <h3>Supermarket Backend</h3>
+            <p class="muted">Supports product management, pricing, and categories. Includes a login/signup system.</p>
+            <div class="pill-row">
+              <span class="pill">Python</span><span class="pill">PostgreSQL</span><span class="pill">Flask</span>
+            </div>
+          </div>
+          <div class="project-card__footer">
+            <a href="https://github.com/Hadi-Hajj-Houssein/supermarket" target="_blank" class="btn-github">GitHub Repo </a>
           </div>
         </article>
+
         <article class="project-card">
-          <h3>EcoCollect</h3>
-          <p class="muted">Recycling pickup platform. Users list the recyclables they have and companies can accept the request and come collect it. Signup uses email verification before an account is activated.But its not public yet 
-            github : https://github.com/Hadi-Hajj-Houssein/Recycling
-          </p>
-          <div class="pill-row">
-            <span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">PostgreSQL</span><span class="pill">SQLAlchemy</span>
+          <div>
+            <h3>EcoCollect</h3>
+            <p class="muted">Recycling pickup platform. Users list recyclables, and companies accept collection requests. Includes email verification before activation.</p>
+            <div class="pill-row">
+              <span class="pill">Python</span><span class="pill">FastAPI</span><span class="pill">PostgreSQL</span><span class="pill">SQLAlchemy</span>
+            </div>
+          </div>
+          <div class="project-card__footer">
+            <a href="https://github.com/Hadi-Hajj-Houssein/Recycling" target="_blank" class="btn-github">GitHub Repo </a>
+            <span class="badge">Not public yet</span>
           </div>
         </article>
+
       </div>
     </section>
 
     <section id="tech" class="section">
-      <h2 class="section-title"><span>Technologies</span></h2> <!-- here -->
+      <h2 class="section-title"><span>Technologies</span></h2>
       <div class="tech-grid">
         <article class="tech-card">
           <h4>Programming</h4>
-          
           <p class="muted">C++ (Competitive Programming Specialist), Python <span class="badge">Beginner</span></p>
         </article>
         <article class="tech-card">
